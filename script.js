@@ -9,8 +9,8 @@ const createSentenceChain = () =>{
     }
     const chain = [];
     for (let index = 0; index < num; index++) {
-        let random = Math.floor(Math.random() * 2) + 1;
-        if(random == 1){
+        let chainRandom = Math.floor(Math.random() * 2) + 1;
+        if(chainRandom == 1){
             chain.push("observation");
         }else{
             chain.push("question");
@@ -25,21 +25,23 @@ const generateRandomQuote = () =>{
     const chain = createSentenceChain();
     for (let index = 0; index < chain.length; index++) {
         if(chain[index] === "observation"){
-            let random = Math.floor(Math.random() * observation.length);
+            let observationRandom = Math.floor(Math.random() * observation.length);
             if(quote === ""){
-                quote += observation[random];
+                quote += observation[observationRandom];
             }else{
-                quote += " " + observation[random];
+                quote += " " + observation[observationRandom];
             }
         }
         if(chain[index] === "question"){
-            let random = Math.floor(Math.random() * question.length);
+            let questionRandom = Math.floor(Math.random() * question.length);
             if(quote === ""){
-                quote += question[random];
+                quote += question[questionRandom];
             }else{
-                quote += " " + question[random];
+                quote += " " + question[questionRandom];
             }
         }
     }
+    let byRandom = Math.floor(Math.random() * by.length);
+    quote += " - " + by[byRandom];
     document.getElementById("quote").innerHTML = quote;
 } 
