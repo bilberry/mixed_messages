@@ -31,8 +31,7 @@ const generateRandomQuote = () =>{
             }else{
                 quote += " " + observation[observationRandom];
             }
-        }
-        if(chain[index] === "question"){
+        } else {
             let questionRandom = Math.floor(Math.random() * question.length);
             if(quote === ""){
                 quote += question[questionRandom];
